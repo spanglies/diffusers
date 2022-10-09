@@ -32,10 +32,10 @@ class StableDiffusionSafetyChecker(PreTrainedModel):
         self.register_buffer("special_care_embeds_weights", torch.ones(3))
 
     @torch.no_grad()
-    def forward(self, images):
+    def forward(self, clip_input, images):
         return images, False
 
     @torch.no_grad()
-    def forward_onnx(self, images: torch.FloatTensor):
+    def forward_onnx(self, clip_input: torch.FloatTensor, images: torch.FloatTensor):
 
         return images, False
